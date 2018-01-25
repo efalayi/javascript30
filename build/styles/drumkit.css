@@ -1,0 +1,37 @@
+h1 {
+  font-size: 2rem;
+  color: red; }
+
+h3 {
+  color: #FFFFFF; }
+
+#drumkit {
+  background-color: #161C2B;
+  padding: 1rem; }
+  #drumkit .page-title {
+    margin-bottom: 2rem; }
+  #drumkit .key {
+    border: 0.4rem solid #000000;
+    border-radius: .5rem;
+    padding: 1rem .5rem;
+    margin: .5rem;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    transition: all .07s ease;
+    cursor: pointer;
+    transition: all .07s ease;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+  #drumkit span.sound {
+    font-size: 1.2rem;
+    color: #FF6600;
+    text-transform: uppercase;
+    letter-spacing: .1rem; }
+  #drumkit .playing {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    border-color: #FF6600;
+    box-shadow: 0 0 1rem #FF6600; }
