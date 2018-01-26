@@ -36,6 +36,14 @@ html {
 body {
   font-family: Courier New, Courier, monospace; }
 
+h1.page-title {
+  font-size: 2rem;
+  color: #FF0000;
+  margin-bottom: 2rem; }
+
+.bg-navyblue {
+  background-color: #161C2B; }
+
 .page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,6 +59,15 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
+
+#home.page h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem; }
+
+#home.page ul {
+  font-size: 1.5rem; }
+  #home.page ul li {
+    margin-bottom: .8rem; }
 
 .grid-container {
   display: -ms-grid;

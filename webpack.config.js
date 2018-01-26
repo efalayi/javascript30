@@ -5,6 +5,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     index: './js/index.js',
+    clock: './js/clock.js',
     drumkit: './js/drumkit.js'
   },
   output: {

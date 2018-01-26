@@ -1,0 +1,42 @@
+@import 'variables';
+
+#clock {
+  .clock-frame {
+    height: 50rem;
+    width: 50rem;
+    border: 2rem solid $BLACK;
+    border-radius: 10rem;
+    padding: 2rem;
+    position: relative;
+  }
+  .clock-face {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    transform: translateY(-3px);
+    .hand {
+      width: 45%;
+      height: 5px;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      background-color: $BLACK;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    }
+    .hour {
+      width: 35%;
+      background-color: $ORANGE_RED;
+    }
+    .second {
+      height: 1px;
+      background-color: $ORANGE;
+    }
+  }
+}

@@ -10,12 +10,35 @@ body {
   // background-color: $BLACK;
 }
 
+h1.page-title {
+  font-size: 2rem;
+  color: $RED;
+  margin-bottom: 2rem;
+}
+
+.bg-navyblue {
+  background-color: $NAVY_BLUE;
+}
+
 .page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
+}
+
+#home.page {
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  ul {
+    font-size: 1.5rem;
+    li {
+      margin-bottom: .8rem;
+    }
+  }
 }
 
 .grid-container {
