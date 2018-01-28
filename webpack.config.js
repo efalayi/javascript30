@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     index: './js/index.js',
     clock: './js/clock.js',
+    cssvariables: './js/cssvariables.js',
     drumkit: './js/drumkit.js'
   },
   output: {

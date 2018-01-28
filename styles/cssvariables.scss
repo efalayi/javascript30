@@ -1,0 +1,60 @@
+@import 'variables';
+
+/* 
+  CSS VARIABLES
+*/
+:root {
+  --base: $YELLOW;
+  --spacing: 10px;
+  --blur: 0px;
+}
+
+#css-variables {
+  .js-logo {
+    color: var(--base);
+  }
+  .controls {
+    margin-bottom: 3rem;
+     .flex-col--equal {
+      margin-right: 1.5rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    label {
+      color: var(--base);
+      font-size: 1.8rem;
+    }
+    input {
+      -webkit-appearance: none;
+      appearance: none;
+      border: none;
+      background-color: rgba($color:  $RED, $alpha: 0.6);
+      &:focus {
+        outline: none;
+      }
+      &[type="range"] {
+       height: 3px;
+       border-radius: 1rem;
+       &::-webkit-slider-thumb {
+        appearance: none;
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        background: $BLUE;
+       }
+      }
+      &[type="color"] {
+       border-radius: .2rem;
+      }
+    }
+
+  }
+  .img-container {
+    padding: var(--spacing);
+    background-color: var(--base);
+    img {
+      filter: blur(var(--blur));
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<html>
+<head>
+  <link rel="stylesheet" href="../build/styles/commons.css">
+  <link rel="stylesheet" href="../build/styles/cssvariables.css">
+</head>
+<body>
+  <div id="css-variables" class="page bg-navyblue">
+    <h1 class="page-title">
+      Update CSS Variables with <span class="js-logo">JS</span>
+    </h1>
+    <div class="controls flex-container">
+      <div class="flex-col--equal">
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" min="10" max="200" data-sizing="px">
+      </div>
+
+      <div class="flex-col--equal">
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+      </div>
+
+      <div class="flex-col--equal">
+        <label for="base">Base Color:</label>
+        <input type="color" name="base" min="0" max="25" value="#F7DF1E">
+      </div>
+    </div>
+
+    <div class="img-container">
+      <img src="https://source.unsplash.com/3ypj4Q4bhjg/400x400">
+    </div>
+  </div>
+  <script src="../build/commons.js"></script>
+  <script src="../build/cssvariables.js"></script>
+</body>
+</html>
