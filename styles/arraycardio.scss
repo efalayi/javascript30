@@ -1,0 +1,64 @@
+@import 'variables';
+
+#array-cardio {
+  h3 {
+    font-size: 1.8rem;
+    color: $ORANGE;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .input-text {
+    height: 35px;
+    input {
+      border-width: 1px;
+      height: 100%;
+      color: $ORANGE;
+      background-color: rgba($color: #000000, $alpha: 0.4);
+      border-color: $BLUE;
+      margin-right: 1rem;
+    }
+  }
+  label {
+    font-size: 1.3rem;
+    color: $ORANGE;
+    text-transform: uppercase;
+  }
+  table, td, th {
+    border: 0.2rem solid $BLACK;
+    border-collapse: collapse;
+  }
+  td, th {
+    font-size: 1.3rem;
+    letter-spacing: .25rem;
+    text-align: left;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    padding: 1rem;
+    min-width: 50px;
+    width: 150px;
+  }
+  td {
+    color: $BLUE;
+  }
+  th {
+    color: $RED;
+    // font-weight: 900;
+  }
+  .array-cardio--controls {
+    margin: 2rem 0 4rem 0;
+    button {
+      width: 150px;
+      height: 35px;
+      background-color: rgba($color: #000000, $alpha: 0.4);
+      border-color: $BLUE;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      letter-spacing: .25rem;
+      color: $ORANGE;
+      text-align: center;
+      margin-right: 1rem;
+      &::last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -4,10 +4,12 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    index: './js/index.js',
+    arraycardio: './js/arraycardio.js',
     clock: './js/clock.js',
     cssvariables: './js/cssvariables.js',
-    drumkit: './js/drumkit.js'
+    drumkit: './js/drumkit.js',
+    flexpanel: './js/flexpanel.js',
+    index: './js/index.js'
   },
   output: {
     path: path.resolve('build/'),
