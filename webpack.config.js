@@ -9,7 +9,8 @@ module.exports = {
     cssvariables: './js/cssvariables.js',
     drumkit: './js/drumkit.js',
     flexpanel: './js/flexpanel.js',
-    index: './js/index.js'
+    index: './js/index.js',
+    typeahead: './js/typeahead.js'
   },
   output: {
     path: path.resolve('build/'),

@@ -8,9 +8,13 @@
     margin-bottom: 2rem;
   }
   .input-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 35px;
     input {
       border-width: 1px;
+      width: 200px;
       height: 100%;
       color: $ORANGE;
       background-color: rgba($color: #000000, $alpha: 0.4);
@@ -22,6 +26,7 @@
     font-size: 1.3rem;
     color: $ORANGE;
     text-transform: uppercase;
+    margin-right: 1.5rem;
   }
   table, td, th {
     border: 0.2rem solid $BLACK;
@@ -41,7 +46,7 @@
   }
   th {
     color: $RED;
-    // font-weight: 900;
+    text-transform: capitalize;
   }
   .array-cardio--controls {
     margin: 2rem 0 4rem 0;

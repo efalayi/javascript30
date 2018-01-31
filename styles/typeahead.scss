@@ -1,0 +1,59 @@
+@import 'variables';
+
+#type-ahead {
+  .search-form {
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid red;
+  }
+  input.search {
+    margin: 0;
+    text-align: center;
+    outline:0;
+    border: 5px solid $BLUE;
+    width: 120%;
+    left: -10%;
+    position: relative;
+    top: 10px;
+    z-index: 2;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 1rem 0rem;
+    background-color: $TRANSPARENT_BLACK;
+    color: $ORANGE;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  }
+  .suggestions {
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    position: relative;
+    span.population {
+      font-size: 15px;
+    }
+
+    .hl {
+      background: $YELLOW;
+      font-weight: 600;
+    }
+    li {
+      background:$TRANSPARENT_BLACK;
+      list-style: none;
+      border-bottom: 1px solid $ORANGE_RED;
+      box-shadow: 0 0 10px $TRANSPARENT_BLACK;
+      margin: 0;
+      padding: 20px;
+      color: $BLUE;
+      font-size: 1.2rem;
+      letter-spacing: .15rem;
+      display: flex;
+      justify-content: space-between;
+      text-transform: capitalize;
+      &:nth-child(even) {
+        transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+      }
+      &:nth-child(odd) {
+        transform: perspective(100px) rotateX(-3deg) translateY(3px);
+      }
+    }
+  }
+}
