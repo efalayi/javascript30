@@ -21,21 +21,20 @@ const inventors = [
   { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
 ];
 
-/* 
-  An array of people
-*/
-const people = [
-  'Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'
-];
-
 const inventorsTableHeader = ["first name", "last name", "year", "passed"];
 
 const inventorsTable = document.querySelector('.inventors table');
-const peopleTable = document.querySelector('.people table');
 
 const inputText = document.querySelector('input[name="text"]');
 const filterButton = document.querySelector('.filter');
 const reduceButton = document.querySelector('.reduce');
+const sortButton = document.querySelector('.sort');
+
+
+function getInputText() {
+  const regex = RegExp(/^[0-9]+$/);
+  return regex.test(inputText.value) ? parseInt(inputText.value) : inputText.value;
+}
 
 /* 
   cellData: Data to be displayed
@@ -70,33 +69,93 @@ function createTableRow(rowData) {
   `;
 }
 
+function notFoundTableRow() {
+  return `
+    <tr class="one-row">
+      <td colspan="4">Not found</td>
+    </tr>
+  `
+}
+
 function createTable(tableData, tableHeader) {
+  const tbody = tableData.length ? tableData.map(createTableRow).join("") : notFoundTableRow()
  return `
     ${createTableHeader(tableHeader)}
     <tbody>
-      ${tableData.map(createTableRow).join("")}
+      ${tbody}
     </tbody>
   `;
 }
 
-function filterInventors(event) {
-  const { value } = inputText;
-  const filterInventors = inventors.filter((inventor) => {
-    const regex = new RegExp(value, 'gi');
-    return inventor.first.match(regex);
+// Check if object key value matches regex
+function objectValueExists(objectElement, regex) {
+  return Object.keys(objectElement).some(objectKey => {
+    return objectElement[objectKey].toString().match(regex);
   });
+}
+
+// Filter inventors
+function filterInventors(event) {
+  const inputValue = getInputText();
+  const filterInventors = inventors.filter((inventor) => {
+    const regex = new RegExp(inputValue, 'gi');
+    return objectValueExists(inventor, regex);
+  });
+  
   inventorsTable.innerHTML = createTable(filterInventors, inventorsTableHeader);
   return;
 }
 
-function reduceInventors(event) {
-  const result = people.reduce((accumulators, currentValue) => {
-    console.log("acc:", accumulators);
-    console.log("cv: ",currentValue);
-  });
-  return result;
+function sortArray(arrayElement, objectKey) {
+  if (objectKey) {
+    return arrayElement.sort((prev, next) => {
+      let prevValue = prev[objectKey];
+      let nextValue = next[objectKey];
+
+      const prevValueType = typeof prev[objectKey];
+      if (typeof prev[objectKey] !== "number") {
+        prevValue = prevValue.toUpperCase();
+        nextValue = nextValue.toUpperCase();
+      }
+
+      if (prevValue < nextValue) return -1
+      if (prevValue > nextValue) return 1
+      return 0;
+    });
+  } 
+}
+
+function sortInventors(event) {
+  const inputValue = getInputText();
+  let sortResult;
+  console.log(typeof inputValue);
+  switch (inputValue.toLowerCase()) {
+    case "first name":
+    case "firstname":
+    case "first":
+      sortResult = sortArray(inventors, "first");
+      break;
+    case "last name":
+    case "lastname":
+    case "last":
+      sortResult = sortArray(inventors, "last");
+      break;
+    case "year":
+      sortResult = sortArray(inventors, "year");
+      break;
+    case "passed":
+      sortResult = sortArray(inventors, "passed");
+      break;
+    default:
+      sortResult = [];
+      break;
+  }
+  inventorsTable.innerHTML = createTable(sortResult, inventorsTableHeader);
+  return;
 }
 
 inventorsTable.innerHTML = createTable(inventors, inventorsTableHeader);
+
 filterButton.addEventListener('click', filterInventors);
-reduceButton.addEventListener('click', reduceInventors);
+inputText.addEventListener('keyup', filterInventors);
+sortButton.addEventListener('click', sortInventors);
